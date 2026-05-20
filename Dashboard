@@ -1,0 +1,272 @@
+import { motion } from 'framer-motion';
+import {
+  Radar,
+  BrainCircuit,
+  Activity,
+  ShieldCheck,
+  Eye,
+  Car,
+  Bike,
+  Users,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
+
+export default function WaymoPerceptionAnalyticsDashboard() {
+  const objectCards = [
+    {
+      title: 'Vehicles',
+      icon: <Car className="w-8 h-8 text-cyan-400" />,
+      accuracy: '96%',
+      description: 'High confidence highway and city vehicle detection.',
+    },
+    {
+      title: 'Pedestrians',
+      icon: <Users className="w-8 h-8 text-pink-400" />,
+      accuracy: '82%',
+      description: 'Urban crowd perception and crossing analytics.',
+    },
+    {
+      title: 'Cyclists',
+      icon: <Bike className="w-8 h-8 text-yellow-400" />,
+      accuracy: '74%',
+      description: 'Dynamic object movement and tracking intelligence.',
+    },
+  ];
+  const metrics = [
+    { label: 'Frames Processed', value: '1,248' },
+    { label: 'Objects Detected', value: '482,391' },
+    { label: 'Avg Precision', value: '91.2%' },
+    { label: 'Avg Recall', value: '87.4%' },
+  ];
+
+  const tableData = [
+    {
+      object: 'Car',
+      precision: '96%',
+      recall: '94%',
+      f1: '95%',
+      issue: 'Night glare',
+    },
+    {
+      object: 'Pedestrian',
+      precision: '82%',
+      recall: '77%',
+      f1: '79%',
+      issue: 'Urban occlusion',
+    },
+    {
+      object: 'Cyclist',
+      precision: '74%',
+      recall: '69%',
+      f1: '71%',
+      issue: 'Distance loss',
+    },
+  ];
+
+  const futureFeatures = [
+    {
+      title: 'Real-Time Sensor Streaming',
+      icon: <Radar className="w-6 h-6 text-cyan-400" />,
+    },
+    {
+      title: 'AI Failure Prediction',
+      icon: <BrainCircuit className="w-6 h-6 text-purple-400" />,
+    },
+    {
+      title: 'Autonomous Safety Scoring',
+      icon: <ShieldCheck className="w-6 h-6 text-green-400" />,
+    },
+    {
+      title: '3D Object Tracking',
+      icon: <Eye className="w-6 h-6 text-yellow-400" />,
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white p-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 blur-3xl rounded-full" />
+        <div className="absolute bottom-20 right-20 w-72 h-72 bg-blue-500/10 blur-3xl rounded-full" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-5"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm">
+            <Activity className="w-4 h-4" />
+            Autonomous Driving Analytics Platform
+          </div>
+
+          <h1 className="text-6xl font-black leading-tight">
+            Waymo Open Dataset{' '}
+            <span className="text-cyan-400">Perception Analytics</span>
+          </h1>
+
+          <p className="text-slate-300 text-lg max-w-4xl">
+            Autonomous vehicle object detection analytics using LiDAR and
+            camera perception systems.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 relative z-10">
+          {metrics.map((metric) => (
+            <motion.div
+              key={metric.label}
+              whileHover={{ scale: 1.03 }}
+              className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-2xl cursor-pointer hover:border-cyan-500/40 transition-all duration-300"
+            >
+              <p className="text-slate-400 text-sm">{metric.label}</p>
+              <h2 className="mt-3 text-4xl font-bold">{metric.value}</h2>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+          {objectCards.map((card) => (
+            <motion.div
+              key={card.title}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-2xl cursor-pointer group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="p-3 rounded-2xl bg-slate-800 border border-slate-700">
+                  {card.icon}
+                </div>
+
+                <div className="text-right">
+                  <p className="text-slate-400 text-sm">Detection Accuracy</p>
+                  <h3 className="text-3xl font-black text-white">
+                    {card.accuracy}
+                  </h3>
+                </div>
+              </div>
+
+              <h2 className="text-2xl font-bold mt-6 group-hover:text-cyan-400 transition-colors">
+                {card.title}
+              </h2>
+
+              <p className="text-slate-400 mt-3 leading-relaxed">
+                {card.description}
+              </p>
+
+              <button className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 hover:bg-cyan-500/20 transition-all">
+                Explore Analytics
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 relative z-10">
+          <div className="xl:col-span-2 rounded-3xl border border-slate-800 bg-slate-900 p-6">
+            <h2 className="text-2xl font-bold mb-6">
+              Detection Performance Report
+            </h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-slate-700 text-slate-400">
+                    <th className="pb-4">Object</th>
+                    <th className="pb-4">Precision</th>
+                    <th className="pb-4">Recall</th>
+                    <th className="pb-4">F1</th>
+                    <th className="pb-4">Failure Cause</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {tableData.map((row) => (
+                    <tr
+                      key={row.object}
+                      className="border-b border-slate-800"
+                    >
+                      <td className="py-4 font-medium">{row.object}</td>
+                      <td>{row.precision}</td>
+                      <td>{row.recall}</td>
+                      <td>{row.f1}</td>
+                      <td className="text-slate-400">{row.issue}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-2xl">
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="text-2xl font-bold">AI Insights</h2>
+
+              <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
+                <Sparkles className="w-5 h-5 text-cyan-300" />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl bg-red-500/10 border border-red-500/20 p-4">
+                <h3 className="text-red-300 font-semibold">
+                  Pedestrian Detection Risk
+                </h3>
+                <p className="text-slate-300 text-sm mt-2">
+                  Low-light urban intersections reduce perception accuracy.
+                </p>
+              </div>
+
+              <div className="rounded-2xl bg-yellow-500/10 border border-yellow-500/20 p-4">
+                <h3 className="text-yellow-300 font-semibold">
+                  Cyclist Tracking Instability
+                </h3>
+                <p className="text-slate-300 text-sm mt-2">
+                  Small moving objects create long-range uncertainty.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-2xl">
+            <h2 className="text-3xl font-bold mb-6">
+              Future Autonomous AI Features
+            </h2>
+
+            <div className="space-y-4">
+              {futureFeatures.map((feature) => (
+                <motion.div
+                  key={feature.title}
+                  whileHover={{ x: 4 }}
+                  className="flex items-center justify-between rounded-2xl border border-slate-700 bg-slate-800 p-4 cursor-pointer hover:border-cyan-500/30 hover:bg-slate-700 transition-all duration-300"
+                >
+                  {feature.icon}
+                  <div className="flex items-center gap-4">
+                    {feature.icon}
+                    <span className="text-lg font-medium">
+                      {feature.title}
+                    </span>
+                  </div>
+
+                  <ArrowRight className="w-5 h-5 text-slate-400" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-8">
+            <h2 className="text-4xl font-black mb-5">
+              Real-World Impact
+            </h2>
+
+            <p className="text-slate-200 leading-relaxed text-lg">
+              This platform evaluates how autonomous vehicles perceive roads,
+              pedestrians, cyclists, and traffic infrastructure using LiDAR and
+              camera systems. Engineers can identify weak detection areas,
+              analyze environmental failures, and improve AI safety models.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
