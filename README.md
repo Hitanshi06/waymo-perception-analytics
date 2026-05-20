@@ -9,11 +9,12 @@ This platform analyzes how self-driving vehicles detect and understand objects s
 
 # 🌐 Live Dashboard
 
-## Demo Link
+[![Live Demo](https://img.shields.io/badge/Live-Dashboard-06B6D4?style=for-the-badge&logo=vercel&logoColor=white)](https://tinyurl.com/WAYMODASHBOARD)
 
-```bash
-[https://tinyurl.com/WAYMODASHBOARD]
-```
+🚀 Click here to explore the live autonomous driving analytics dashboard:
+
+## 🔗 Live Demo
+https://tinyurl.com/WAYMODASHBOARD
 
 ---
 
