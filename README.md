@@ -12,7 +12,7 @@ This platform analyzes how self-driving vehicles detect and understand objects s
 ## Demo Link
 
 ```bash
-https://your-dashboard-link.vercel.app
+[(https://tinyurl.com/WAYMODASHBOARD)]
 ```
 
 ---
